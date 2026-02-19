@@ -63,5 +63,5 @@ Follow the journey, test it on your repo, and help shape the first release.
 
 Croofx is the first step toward an AI-native debugging workflow by Croovi.
 
-<p align="center">Built by Croovi — AI-native developer tools.</p> ```
+```<p align="center">Built by Croovi — AI-native developer tools.</p>```
 

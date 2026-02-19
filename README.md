@@ -1,6 +1,6 @@
 # Croofx
 
-**Croofx is an AI-powered CLI that reviews your repository and tells you what’s broken, why it matters, and how to fix it — in under 60 seconds.**
+**Croofx is an AI-powered CLI that reviews your repository and tells you what’s broken, why it matters, and how to fix it in under 60 seconds.**
 
 Built for developers shipping fast with AI who don’t have time for manual debugging.
 
@@ -8,7 +8,7 @@ Built for developers shipping fast with AI who don’t have time for manual debu
 
 ## ⚡ Why Croofx?
 
-Modern workflows generate a lot of code —  
+Modern workflows generate a lot of code 
 but understanding and debugging that code is the real bottleneck.
 
 Croofx acts like a **senior engineer in your terminal**:
@@ -55,13 +55,10 @@ Just a fast, powerful CLI that works in your real workflow.
 
 ## 🏗 Status
 
-V1 is currently in active development — built in public.
+- V1 is currently in active development - built in public.
+- Follow the journey, test it on your repo, and help shape the first release.
 
-Follow the journey, test it on your repo, and help shape the first release.
+## 🌍 Vision
+- Croofx is the first step toward an AI-native debugging workflow by Croovi.
 
-🌍 Vision
-
-Croofx is the first step toward an AI-native debugging workflow by Croovi.
-
-<p align="center">Built by Croovi — AI-native developer tools.</p> ```
-
+<h2 align="center">Built by Croovi</h2>

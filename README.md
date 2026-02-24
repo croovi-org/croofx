@@ -1,35 +1,57 @@
 # Croofx
 
-**Croofx is an AI-powered CLI that reviews your repository and tells you what’s broken, why it matters, and how to fix it in under 60 seconds.**
+**Croofx is a repo-aware AI execution engine that runs LLMs on real-world codebases - safely, selectively, and predictably.**
 
-Built for developers shipping fast with AI who don’t have time for manual debugging.
+Built for developers who rely on AI daily but don’t want broken patches, wasted tokens, or blind context dumping.
+
+---
+
+## 🚀 Early Access
+
+Croofx is currently in active development - built in public.
+
+If you ship with AI and want structured, controlled execution on serious repositories:
+
+👉 **[Join the Waitlist →](https://www.croovi.com/)**
 
 ---
 
 ## ⚡ Why Croofx?
 
-Modern workflows generate a lot of code 
-but understanding and debugging that code is the real bottleneck.
+Modern AI tools are powerful - but they operate probabilistically.
 
-Croofx acts like a **senior engineer in your terminal**:
+They:
+- Don’t truly understand your full repository
+- Lose context across files
+- Generate patches that require heavy manual review
+- Consume unnecessary tokens
+- Occasionally break production
 
-- Scans your project
-- Detects real issues
-- Explains the impact
-- Suggests ready-to-apply fixes
+Croofx adds structure around AI.
 
-Before you commit. Before it breaks in production.
+Instead of blindly sending your entire repo to a model, Croofx:
+
+- Understands your project structure
+- Filters out noise (`node_modules`, build folders, env files)
+- Selects only high-impact modules
+- Validates AI-generated patches before you apply them
+
+**LLMs generate. Croofx enforces discipline.**
 
 ---
 
 ## 🧠 V1 Capabilities
 
-- 📂 Local repository analysis
-- 🐍 Detects project type & dependencies
-- 🚨 Finds high-signal bugs & code issues
-- 💬 Clear, developer-friendly explanations
+Croofx V1 focuses on controlled local execution:
+
+- 📂 Intelligent repository scanning
+- 🧭 Language & dependency detection
+- 🧠 Context-aware file selection
+- 🚨 High-signal issue detection
 - 🩹 AI-generated patch suggestions (diff format)
-- ⚡ Runs in ~60 seconds
+- 🔎 Structured patch validation (syntax & integrity checks)
+- 💰 Token-aware execution
+- ⚡ CLI-first workflow (~60s runtime target)
 
 ---
 
@@ -39,26 +61,52 @@ Before you commit. Before it breaks in production.
 cfx analyze
 ```
 
-Run inside any project to get an instant AI review.
+Run inside any project folder to:
+- Analyze repository structure
+- Select relevant context
+- Send structured prompts to LLM
+- Return validated, patch-ready diffs
 
 ## 🎯 V1 Scope
 
-Croofx V1 is focused on one job:
+Croofx V1 is intentionally focused:
 
-Give you a fast, reliable AI code review for your local repo.
+- Local CLI only
+- No auto-modifying files
+- No background agents
+- No IDE plugin
+- No cloud dashboard (yet)
 
-- No IDE plugins.
-- No cloud dashboard.
-- No auto-modifying your code.
+You stay in control.
 
-Just a fast, powerful CLI that works in your real workflow.
+Croofx analyzes, validates, and suggests - you decide.
+
+## 🏗 What Croofx Is (And Isn’t)
+**Croofx is not:**
+
+- A model
+- An IDE wrapper
+- A chat interface
+
+**Croofx is:**
+
+- A repo-aware execution layer
+- A deterministic patch validator
+- A token governance system
+- A control layer between LLMs and your codebase
 
 ## 🏗 Status
 
 - V1 is currently in active development - built in public.
 - Follow the journey, test it on your repo, and help shape the first release.
 
-## 🌍 Vision
-- Croofx is the first step toward an AI-native debugging workflow by Croovi.
+## 🌍 Long-Term Vision
+
+Croofx is the first step toward a structured AI execution platform by Croovi.
+
+As AI becomes central to software development, execution discipline, cost control, and governance will matter more than raw intelligence.
+
+Croofx aims to become the execution layer between LLMs and production systems.
+
 
 <h2 align="center">Built by Croovi</h2>

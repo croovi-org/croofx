@@ -1,14 +1,14 @@
-# Croofx — Coding Agent Session
+# Croofx - Coding Agent Session
 ## Building v0.0.1: Deterministic Repo Scanner
-**Project:** Croofx — Deterministic AI Execution Control Layer  
-**Session goal:** Build `croofx analyze` — the deterministic repo scanner (v0.0.1)  
+**Project:** Croofx - Deterministic AI Execution Control Layer  
+**Session goal:** Build `croofx analyze` - the deterministic repo scanner (v0.0.1)  
 **Language:** Python 3.10+
 
 ---
 
 ## Context & Spec
 
-Croofx is a deterministic patch enforcement engine that sits between AI-generated code and production systems. Before any patch can be validated or applied, Croofx needs to understand the repository it's operating on — deterministically.
+Croofx is a deterministic patch enforcement engine that sits between AI-generated code and production systems. Before any patch can be validated or applied, Croofx needs to understand the repository it's operating on - deterministically.
 
 **Core constraint (non-negotiable):** For unchanged repository state, `croofx analyze --json` must produce byte-for-byte identical output across runs. No randomness. No timestamps. No AI. No ranking.
 
@@ -24,17 +24,17 @@ Croofx is a deterministic patch enforcement engine that sits between AI-generate
 
 ---
 
-## Prompt 1 — Scanner Core
+## Prompt 1 - Scanner Core
 
 **User:**
 > Build the DeterministicScanner class. It needs to walk the repo recursively, normalize paths to POSIX, detect language by extension, hash each file with SHA256 (normalize line endings first), detect dependency files, and return a fully sorted deterministic dict. No timestamps. No randomness. Sorted file list, sorted language keys, sorted dependency_files.
 
 **Agent reasoning:**
 The key design decisions here:
-1. `os.walk` with `dirnames[:] = sorted(...)` in-place — this prunes ignored dirs AND enforces stable traversal order in one step.
-2. CRLF normalization before SHA256 — otherwise the same file produces different hashes on Windows vs Linux, breaking the determinism guarantee.
-3. Exact filename check before extension check in language detection — so `Dockerfile` maps correctly without a `.` extension.
-4. All sorting happens at the end on the final arrays, not during accumulation — cleaner and guaranteed.
+1. `os.walk` with `dirnames[:] = sorted(...)` in-place - this prunes ignored dirs AND enforces stable traversal order in one step.
+2. CRLF normalization before SHA256 - otherwise the same file produces different hashes on Windows vs Linux, breaking the determinism guarantee.
+3. Exact filename check before extension check in language detection - so `Dockerfile` maps correctly without a `.` extension.
+4. All sorting happens at the end on the final arrays, not during accumulation - cleaner and guaranteed.
 
 ```python
 """
@@ -215,13 +215,13 @@ def scan_repo_json(path: str, indent: int = 2) -> str:
 
 ---
 
-## Prompt 2 — CLI Entry Point
+## Prompt 2 - CLI Entry Point
 
 **User:**
 > Now build the CLI. `croofx analyze [PATH] [--json]`. --json gives deterministic JSON output. Without --json, give a human-readable summary. PATH defaults to current directory. Validate the path exists and is a directory, exit(1) with error if not.
 
 **Agent reasoning:**
-Using `argparse` with subparsers to keep the CLI extensible — `validate` and `apply` commands come later and need to slot in cleanly. The `--json` flag only changes output format, never exit behavior (that's a hard rule in the Croofx spec). Human output is explicitly NOT guaranteed deterministic — that's fine, it's for humans.
+Using `argparse` with subparsers to keep the CLI extensible - `validate` and `apply` commands come later and need to slot in cleanly. The `--json` flag only changes output format, never exit behavior (that's a hard rule in the Croofx spec). Human output is explicitly NOT guaranteed deterministic - that's fine, it's for humans.
 
 ```python
 """
@@ -325,7 +325,7 @@ if __name__ == "__main__":
 
 ---
 
-## Verification — Determinism Proof
+## Verification - Determinism Proof
 
 **User:**
 > Run the scanner against itself 3 times and SHA256 each output. They must be identical.
@@ -347,7 +347,7 @@ Run 1: d35acf6caf294cefcf011005f36e5cdbf97e03febd78838374157b145b273ba9  -
 Run 2: d35acf6caf294cefcf011005f36e5cdbf97e03febd78838374157b145b273ba9  -
 Run 3: d35acf6caf294cefcf011005f36e5cdbf97e03febd78838374157b145b273ba9  -
 
-✅ DETERMINISM VERIFIED — byte-for-byte identical across 3 runs
+✅ DETERMINISM VERIFIED - byte-for-byte identical across 3 runs
 ```
 
 ---
@@ -411,6 +411,6 @@ v0.9.0  → Deterministic patch validator (THE NUCLEUS)
 v1.0.0  → Full CLI enforcement: croofx validate --ci, croofx apply --force
 ```
 
-The scanner is not optional infrastructure. Every downstream component — the validator, the patch simulator, the CI enforcement interface — depends on a repo representation that is provably stable. This session builds that foundation.
+The scanner is not optional infrastructure. Every downstream component - the validator, the patch simulator, the CI enforcement interface — depends on a repo representation that is provably stable. This session builds that foundation.
 
 **Croofx core principle:** AI generates. Croofx enforces.

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "croofx"
+version = "0.0.1"
+description = "Deterministic AI Execution Control Layer — Repo Scanner"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[project.scripts]
+croofx = "croofx.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
